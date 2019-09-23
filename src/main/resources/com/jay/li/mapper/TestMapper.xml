@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jay.li.mapper.TestMapper">
+
+    <select id="selectTest" resultType="int">
+        select count(*) from tm_product_type
+    </select>
+
+    <resultMap id="map" type="com.jay.li.entity.ProductType">
+        <result column="id" property="id"/>
+        <result column="product_type_code" property="productTypeCode"/>
+        <result column="product_type_name" property="productTypeName"/>
+    </resultMap>
+
+    <select id="selectOne" parameterType="long" resultMap="map">
+        select * from tm_product_type where id = #{id}
+    </select>
+
+</mapper>
